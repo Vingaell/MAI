@@ -1,0 +1,5 @@
+/home/vingael/projects/OSI/OSI 5-7/src/build/CMakeFiles/server.dir
+/home/vingael/projects/OSI/OSI 5-7/src/build/CMakeFiles/client.dir
+/home/vingael/projects/OSI/OSI 5-7/src/build/CMakeFiles/clean-all.dir
+/home/vingael/projects/OSI/OSI 5-7/src/build/CMakeFiles/edit_cache.dir
+/home/vingael/projects/OSI/OSI 5-7/src/build/CMakeFiles/rebuild_cache.dir

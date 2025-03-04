@@ -1,0 +1,37 @@
+ALTER TABLE clients
+  ALTER COLUMN name DROP NOT NULL,
+  ALTER COLUMN phone_number DROP NOT NULL,
+  ALTER COLUMN client_address DROP NOT NULL,
+  ALTER COLUMN email DROP NOT NULL,
+  ALTER COLUMN birth_date DROP NOT NULL;
+
+psql -h localhost -p 5432 -U postgres -d board_games
+
+
+
+CREATE OR REPLACE FUNCTION check_client_age()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Проверяем, что возраст клиента больше или равен 12 годам
+    IF (NEW.birth_date > CURRENT_DATE - INTERVAL '12 years') THEN
+        RAISE EXCEPTION 'Клиент должен быть старше или равен 12 годам';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_check_client_age
+BEFORE INSERT OR UPDATE ON clients
+FOR EACH ROW
+EXECUTE FUNCTION check_client_age();
+
+
+
+
+
+
+
+
+
+
+
